@@ -154,8 +154,8 @@ THM{byt3_l0tus_n3v3r_f0rg3ts}
 
 ---
 
-## Root Cause / Lesson Learned
+Root Cause / Lesson Learned
 
-The `.git` folder was deployed to the production/staging web server and left publicly accessible at `/.git/`. Anyone can download the entire Git history of a project this way using tools like `git-dumper`, even if sensitive data was later removed in a newer commit which it still lives in the Git history.
+The .git folder was deployed to the production/staging web server and left publicly accessible at /.git/. Anyone can download the entire Git history of a project this way using tools like git-dumper, even if sensitive data was later removed in a newer commit — it still lives in the Git history.
 
-**Fix:** Never deploy the `.git` directory to a public web server. Add server rules to block access to dotfiles (e.g. deny `.git` in the web server config), and use `.gitignore` plus secret scanning in CI/CD to prevent staging notes, keys, or flags from being committed in the first place.
+Fix: Never deploy the .git directory to a public web server. Add server rules to block access to dotfiles (e.g. deny .git in the web server config), and use .gitignore plus secret scanning in CI/CD to prevent staging notes, keys, or flags from being committed in the first place.
